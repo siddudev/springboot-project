@@ -1,7 +1,6 @@
-FROM ubuntu AS package
+FROM maven AS package
 WORKDIR /app
 COPY . .
-RUN apt update && apt install openjdk-21-jdk maven -y
 RUN mvn package
 RUN mv target/*.jar App.jar
 
